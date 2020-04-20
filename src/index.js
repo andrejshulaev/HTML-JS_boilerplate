@@ -30,7 +30,6 @@ const filterOptions = {
   },
   'd-desc': (a, b) => {
     const field = a.isDone ? 'resolvedDate' : 'createdDate';
-    console.log(field, a[field], a);
     return a[field] < b[field] ? -1 : 1;
   },
 };
@@ -146,7 +145,6 @@ clearDoneList.addEventListener('click', () => removeFromTaskList('done'));
 const updateFilterOptionElement = () => {
   openTaskFilter.value = curOptionOpenTask;
   doneTaskFilter.value = curOptionDoneTask;
-  console.log(doneTaskFilter);
 };
 
 const backUpFilterOption = () => {
@@ -160,7 +158,6 @@ const restoreFilterOption = () => {
   const options = JSON.parse(
     window.localStorage.getItem(filterOptionStorageId),
   );
-  console.log(options);
   curOptionOpenTask = options ? options['open'] : 't-asc';
   curOptionDoneTask = options ? options['done'] : 't-asc';
   updateFilterOptionElement();
